@@ -1,8 +1,10 @@
+//Duvidas que tenho, qual a necessidade do anoAtual aqui e no metodo calcular idade
+// Falta fazer os packages Bean e Main e atribuir a class/file Aluno no package Bean e UsaAluno dentro do Package Main
+
 package br.com.fiap;
 
 import java.time.LocalDate;
 import java.time.Period;
-
 import javax.swing.JOptionPane;
 
 public class Aluno {
