@@ -3,6 +3,8 @@ package br.com.fiap;
 import java.time.LocalDate;
 import java.time.Period;
 
+import javax.swing.JOptionPane;
+
 public class Aluno {
     private int rm;
     private String nome;
@@ -27,7 +29,8 @@ public class Aluno {
                 throw new Exception("RM INVÁLIDO!");
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.exit(0);
         }
 
     }
@@ -43,16 +46,18 @@ public class Aluno {
         return dataDeNascimento;
     }
     public void setDataDeNascimento(LocalDate dataDeNascimento) {
+        LocalDate minimo = LocalDate.parse("1899-12-31");
+        LocalDate anoAtual = LocalDate.now(); // Pega a data atual do sistema
         try {
-            LocalDate anoAtual = LocalDate.now(); // Pega a data atual do sistema
-            if (dataDeNascimento.getYear() >= 1900 && dataDeNascimento.getYear() <= anoAtual.getYear()) { // Dentro da condição ele vai pegar o ano da data inserida pelo usuario e verificar se é maior que 1900 -- Novamente ele o ano da data inserida pelo usuario e verifica se é maior ou igual ao ano atual da data do sistema.
+            if (dataDeNascimento.isAfter(minimo) && dataDeNascimento.isBefore(anoAtual)) { // Dentro da condição ele vai pegar o ano da data inserida pelo usuario e verificar se é maior que 1900 -- Novamente ele o ano da data inserida pelo usuario e verifica se é maior ou igual ao ano atual da data do sistema.
                 this.dataDeNascimento = dataDeNascimento; // Caso esteja tudo dentro da regra de negocios ele setta a data.
             } else {
-                this.dataDeNascimento = LocalDate.parse("1900-01-01"); // Para melhor exibição, caso ele não esteja dentro dos padrões ele insere a data acima (podemos analisar e tirar)
-                System.out.println("DATA DE NASCIMENTO INVÁLIDA!");
+                throw new Exception("Data fora da faixa permitida (1900-01-01" + " - " + anoAtual + ")");
+                
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.exit(0);
         }}
 
         public String calculaIdadeCompleta(int anoAtual) {
