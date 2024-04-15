@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 public class UsaAluno {
     public static void main(String[] args) {
-        int anoAtual = LocalDate.now().getYear();
+        LocalDate anoAtual;
 
         try {
             // Declaração, instanciação e exibição de dois objetos com constructor vazio.
