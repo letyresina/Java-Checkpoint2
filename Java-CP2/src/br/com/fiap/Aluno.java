@@ -62,8 +62,8 @@ public class Aluno {
             System.exit(0);
         }}
 
-        public String calculaIdadeCompleta(int anoAtual) {
-            Period periodo = Period.between(dataDeNascimento, LocalDate.now());
+        public String calculaIdadeCompleta(LocalDate dataAtual) {
+            Period periodo = Period.between(dataDeNascimento, dataAtual);
             
             String idadeCompleta = periodo.getYears() + " anos, " + periodo.getMonths() + " meses e " + periodo.getDays() + " dias";
 
