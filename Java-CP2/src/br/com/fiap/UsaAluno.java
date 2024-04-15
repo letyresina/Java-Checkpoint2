@@ -1,9 +1,3 @@
-//Duvidas que tenho, qual a necessidade do anoAtual aqui e no metodo calcular idade
-//Onde esta comentado com leticia, tirar os coments e colocar suas informações reais
-//Terminar os outros dois objetos com passagem de parametros e input do usuario (Olha melhor no documento) 
-// Falta fazer os packages Bean e Main e atribuir a class/file Aluno no package Bean e UsaAluno dentro do Package Main
-// Não esquecer de fazer os imports dos packages import br.com.fiap.bean.Aluno;
-
 package br.com.fiap;
 
 import java.time.LocalDate;
@@ -12,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class UsaAluno {
     public static void main(String[] args) {
-        LocalDate anoAtual;
+    	LocalDate dataAtual = LocalDate.now();
 
         try {
             // Declaração, instanciação e exibição de dois objetos com constructor vazio.
@@ -23,12 +17,12 @@ public class UsaAluno {
             vitor.setRm(97758);
             vitor.setDataDeNascimento(LocalDate.parse("2005-03-08")); // LocalDate.parse() define uma data -- OBS: settar no formato americano, caso deseje alterar o formato use o ofPattern(dd-MM-yyyy).
             
-            //leticia.setNome(null);
-            //leticia.setRm(12345);
-            //leticia.setDataDeNascimento(LocalDate.parse("seu niver"));
+            leticia.setNome("Leticia Cristina Gandarez Resina");
+            leticia.setRm(98069);
+            leticia.setDataDeNascimento(LocalDate.parse("2004-08-04"));
 
-            JOptionPane.showMessageDialog(null, "RM: " + vitor.getRm() + " - NOME: " + vitor.getNome() + " - IDADE COMPLETA: " + vitor.calculaIdadeCompleta(anoAtual));
-            //JOptionPane.showMessageDialog(null, "RM: " + leticia.getRm() + " - NOME: " + leticia.getNome() + " - Idade completa: " + leticia.calculaIdadeCompleta(anoAtual));      
+            JOptionPane.showMessageDialog(null, "RM: " + vitor.getRm() + " - NOME: " + vitor.getNome() + " - IDADE COMPLETA: " + vitor.calculaIdadeCompleta(dataAtual));
+            JOptionPane.showMessageDialog(null, "RM: " + leticia.getRm() + " - NOME: " + leticia.getNome() + " - Idade completa: " + leticia.calculaIdadeCompleta(dataAtual));      
             
             // Declaração, instanciação e exibição de dois objetos com constructor com passagem de parametros.
 
